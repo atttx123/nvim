@@ -5,7 +5,7 @@
 
 ## Semi-optional
 
-* `[ripgrep](https://github.com/BurntSushi/ripgrep)` is frequired for grep searching with Telescope
+* [ripgrep](https://github.com/BurntSushi/ripgrep) is frequired for grep searching with Telescope
 
 
 ## Clone config file
