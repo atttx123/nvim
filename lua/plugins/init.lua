@@ -29,14 +29,24 @@ if not present then
 end
 
 packer.startup(function()
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    },
-    config = function() require'nvim-tree'.setup {} end
-}
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        },
+        config = function() require('plugins.configs.nvimtree').setup() end,
+        setup = function() require('mappings').nvimtree() end
+    }
+
+    use {
+        "nvim-telescope/telescope.nvim",
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+        config = function() require('plugins.configs.telescope').setup() end,
+        setup = function() require("mappings").telescope() end
+    }
 end)

@@ -1,6 +1,6 @@
 ## Pre-requisites
 
-* neovim >= 0.6.0
+* [neovim >= 0.6.0](https://github.com/neovim/neovim/releases)
 * [Use a Nerd Font](https://www.nerdfonts.com/) in your terminal emulator.
 
 ## Semi-optional
