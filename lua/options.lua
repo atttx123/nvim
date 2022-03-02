@@ -4,12 +4,19 @@ local g = vim.g
 opt.title = true
 opt.clipboard = 'unnamedplus'
 opt.cmdheight = 1
-opt.cul = true -- cursor line
 
 -- Indentline
 opt.expandtab = true
-opt.shiftwidth = 2
+opt.shiftwidth = 4
 opt.smartindent = true
+
+opt.list = true
+opt.listchars = {
+    extends = "#",
+    trail = '.',
+    tab = "▸\\",
+    eol = "↵"
+}
 
 -- disable tilde on end of buffer: https://github.com/neovim/neovim/pull/8546#issuecomment-643643758
 opt.fillchars = { eob = " " }
@@ -33,7 +40,7 @@ opt.splitbelow = true
 opt.splitright = true
 opt.tabstop = 8
 opt.termguicolors = true
-opt.timeoutlen = 400
+opt.timeoutlen = 1000
 opt.undofile = true
 
 -- interval for writing swap file to disk, also used by gitsigns

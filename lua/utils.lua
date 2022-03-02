@@ -1,4 +1,44 @@
 local M = {}
+local cmd = vim.cmd
+
+
+-- Override parts of default config of a plugin based on the table provided in the chadrc
+
+-- FUNCTION: tbl_override_req, use `chadrc` plugin config override to modify default config if present
+-- name = name inside `default_config` / `chadrc`
+-- default_table = the default configuration table of the plugin
+-- returns the modified configuration table
+M.tbl_override_req = function(name, default_table)
+   local override = {}
+   return vim.tbl_deep_extend("force", default_table, override)
+end
+
+
+-- Highlights functions
+
+-- Define bg color
+-- @param group Group
+-- @param color Color
+
+M.bg = function(group, col)
+   cmd("hi " .. group .. " guibg=" .. col)
+end
+
+-- Define fg color
+-- @param group Group
+-- @param color Color
+M.fg = function(group, col)
+   cmd("hi " .. group .. " guifg=" .. col)
+end
+
+-- Define bg and fg color
+-- @param group Group
+-- @param fgcol Fg Color
+-- @param bgcol Bg Color
+M.fg_bg = function(group, fgcol, bgcol)
+   cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
+end
+
 
 M.map = function(mode, keys, command, opt)
    local options = { noremap = true, silent = true }

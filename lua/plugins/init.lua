@@ -33,12 +33,24 @@ packer.startup(function()
     use 'wbthomason/packer.nvim'
 
     use {
+        "NvChad/nvim-base16.lua",
+        after = "packer.nvim",
+        config = function()
+            require("colors").init()
+        end,
+    }
+
+    use {
+        "kyazdani42/nvim-web-devicons",
+        after = "nvim-base16.lua",
+        config = function() require('plugins.configs.icons').setup() end,
+    }
+
+    use {
         'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons', -- optional, for file icon
-        },
+        after = 'nvim-web-devicons', -- optional, for file icon
         config = function() require('plugins.configs.nvimtree').setup() end,
-        setup = function() require('mappings').nvimtree() end
+        setup = function() require('mappings').nvimtree() end,
     }
 
     use {
@@ -47,6 +59,25 @@ packer.startup(function()
             'nvim-lua/plenary.nvim'
         },
         config = function() require('plugins.configs.telescope').setup() end,
-        setup = function() require("mappings").telescope() end
+        setup = function() require("mappings").telescope() end,
+    }
+
+    use {
+        "feline-nvim/feline.nvim",
+        after = "nvim-web-devicons",
+        config = function() require('plugins.configs.statusline').setup() end,
+    }
+
+    use {
+        "akinsho/bufferline.nvim",
+        after = "nvim-web-devicons",
+        config = function() require('plugins.configs.bufferline').setup() end,
+    }
+
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        event = "BufRead",
+        config = function() require("plugins.configs.treesitter").setup() end,
+        run = ":TSUpdate",
     }
 end)

@@ -61,13 +61,6 @@ M.setup = function(override_flag)
 
    telescope.setup(default)
 
-   local extensions = { "themes", "terms" }
-
-   pcall(function()
-      for _, ext in ipairs(extensions) do
-         telescope.load_extension(ext)
-      end
-   end)
 end
 
 return M
