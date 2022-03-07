@@ -80,4 +80,15 @@ packer.startup(function()
         config = function() require("plugins.configs.treesitter").setup() end,
         run = ":TSUpdate",
     }
+
+    use {
+        "ludovicchabant/vim-gutentags",
+    }
+
+    use {
+        "neovim/nvim-lspconfig",
+        opt = true,
+        config = function() require('plugins.configs.lspconfig').setup() end,
+    }
+
 end)
