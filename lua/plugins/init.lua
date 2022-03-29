@@ -82,6 +82,11 @@ packer.startup(function()
     }
 
     use {
+        "preservim/tagbar",
+        setup = function() require("mappings").tagbar() end,
+    }
+
+    use {
         "ludovicchabant/vim-gutentags",
     }
 

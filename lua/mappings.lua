@@ -38,11 +38,17 @@ M.nvimtree = function()
 end
 
 M.telescope = function()
+    map('n', '<C-p>', ":Telescope find_files<CR>")
     map('n', '<leader>ff', ":Telescope find_files<CR>")
     map('n', '<leader>fg', ":Telescope live_grep<CR>")
     map('n', '<leader>ft', ":Telescope current_buffer_tags<CR>")
     map('n', '<leader>fT', ":Telescope tags<CR>")
 end
+
+M.tagbar = function()
+    map('n', '<leader>m', ":TagbarToggle<CR>")
+end
+
 
 M.lspconfig = function(client, bufnr)
     local opts = { noremap=true, silent=true }
